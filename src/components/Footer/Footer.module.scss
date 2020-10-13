@@ -1,37 +1,58 @@
 .container{
     background-color: #e6e6e6;
-    height: 200px;
+    height: 300px;
     display: flex;
+    hr{
+        transform: rotate(90);
+        color: #656565;
+    }
+    p{
+        font-size: 0.8rem;
+        font-family: 'Roboto', sans-serif;
+        color: #656565;
+        letter-spacing: 1px;
+        line-height: 60%;
+    }
+    h6{
+        font-family: 'Roboto', sans-serif;
+        color: #656565;
+        font-weight: 600;
+    }
     .firstContainer{
-        margin-left: 10%;
+        margin-left: 20%;
     }
     .secondContainer{
-        margin-left: 10%;
+        margin-left: 0%;
     }
     .thirdContainer{
-        margin-left: 10%;
+        margin: 0 10%;
+        width: 20%;
         .innerContainer{
             display: flex;
             justify-content: space-between;
+            margin-left: 5%;
         }
         .secondInnerContainer{
             display: flex;
             justify-content: space-between;
+            margin-left: 20%;
         }
         .iconsContainer{
             display: flex;
             justify-content: space-between;
+            margin-left: 10%;
             .icon{
-                height: 20px;
-                width: 20px;
+                height: 50px;
+                width: 50px;
                 border-radius: 50%;
                 background-color: #656565;
+                padding: 10px;
                 display: flex;
                 align-items: center;
-                justify-items: center;
+                justify-content: center;
                 img{
                     filter: invert(100%);
-                    width: 50%;
+                    width: 60%;
                 }
             }
         }
