@@ -1,0 +1,37 @@
+.App {
+  text-align: center;
+}
+
+.stickyNav{
+  position: fixed;
+  background-color: rgba($color: #fff, $alpha: 0.7);
+  z-index: 2;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  padding: 0 5%;
+  height: 85px;
+  nav{
+      display: flex;
+      justify-content: space-between;
+      >div:last-child{
+          margin-right: 20px;
+      }
+      ul li{
+          padding: 0px 10px;
+          font-size: 1.3rem;
+          font-weight: 300;
+          text-transform: uppercase;
+         
+          a{
+            color:#313536;
+
+          }
+      }
+  }
+  .logo{
+  width: 150px;
+  }
+.active{
+    color: #f47320;
+}
+}

@@ -1,0 +1,39 @@
+.container{
+    background-color: #e6e6e6;
+    height: 200px;
+    display: flex;
+    .firstContainer{
+        margin-left: 10%;
+    }
+    .secondContainer{
+        margin-left: 10%;
+    }
+    .thirdContainer{
+        margin-left: 10%;
+        .innerContainer{
+            display: flex;
+            justify-content: space-between;
+        }
+        .secondInnerContainer{
+            display: flex;
+            justify-content: space-between;
+        }
+        .iconsContainer{
+            display: flex;
+            justify-content: space-between;
+            .icon{
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                background-color: #656565;
+                display: flex;
+                align-items: center;
+                justify-items: center;
+                img{
+                    filter: invert(100%);
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
