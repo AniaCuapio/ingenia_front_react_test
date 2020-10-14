@@ -8,7 +8,9 @@ import {addUserMessageService} from '../../services'
 
 //SCSS & reactstrap
 import styles from './ContactView.module.scss'
-import { Container, Row, Col, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Navbar, Nav, NavItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, Card, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Form, Input } from 'antd';
+const { TextArea } = Input;
 
 export default function ContactView(){
 
@@ -27,6 +29,10 @@ export default function ContactView(){
         });
         console.log(formData)
       };
+
+      const onFinish = values => {
+        console.log('Success:', values);
+      };
     
     const handleFormSubmit = async (e) => {
         e.preventDefault();
@@ -34,6 +40,10 @@ export default function ContactView(){
         console.log(formData)
         console.log(formData, response);
       };
+      const onFinishFailed = errorInfo => {
+        console.log('Failed:', errorInfo);
+      };
+    
 
     return (
         <>
@@ -63,47 +73,138 @@ export default function ContactView(){
         <p>Send us an e-mail and we dill get back to you: </p>
         </div>
 
-    <Form className={styles.formContainer} onSubmit={handleFormSubmit}>
-      <FormGroup className={styles.item1} >
-        <Input callback={handleChange} name="name" id="name" placeholder="Name" />
-      </FormGroup>
-      <FormGroup className={styles.item2} >
-        <Input callback={handleChange} name="lastName" id="lastName" placeholder="Last Name" />
-      </FormGroup>
-      <FormGroup className={styles.item3}>
-        <Input callback={handleChange} type="email" name="email" id="email" placeholder="E-mail" />
-      </FormGroup>
-      <FormGroup className={styles.item4}>
-        <Input callback={handleChange} name="phone" id="phone" placeholder="Phone" />
-      </FormGroup>
-      
-      <FormGroup className={styles.item5}>
-        <Label for="message">Tell us about your challenge or opportunity</Label>
-        <Input callback={handleChange} type="textarea" name="message" id="message" />
-      </FormGroup>
-    <div className={styles.item6} >
-      <FormGroup check>
-        <Label check>
-          <Input type="checkbox" />{' '}
-         No soy un robot
-        </Label>
-      </FormGroup>
-    </div>
-      <div className={styles.item7} >
-        <div><button type="submit" >Enviar</button></div>
-      </div>
+
+    <Form className={styles.formContainer}
+      name="basic"
+      initialValues={{ remember: true }}
+      onFinish={handleFormSubmit}
+      onFinishFailed={onFinishFailed}
+    >
+      <Form.Item className={styles.item1}
+        placeholder="Name"
+        name="firstName"
+        rules={[{ required: true, message: 'Please input your Name !' }]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item className={styles.item2}
+        placeholder="Last Name"
+        name="lastName"
+        rules={[{ required: true, message: 'Please input your last name !' }]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item className={styles.item3}
+        placeholder="E-mail"
+        name="email"
+        rules={[{ required: true, message: 'Please input your E-mail !' }]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item className={styles.item4}
+        placeholder="Phone"
+        name="phone"
+        rules={[{ required: true, message: 'Please input your phone !' }]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item className={styles.item5}>
+      <TextArea rows={8} />
+      </Form.Item>
+
+      <Form.Item>
+        <button htmlType="submit"> Enviar </button>
+      </Form.Item>
     </Form>
 
     <div className={styles.fourthContainer}>
-        <h4> Comming to visit us?</h4>
-        <p> Here are some of our favorite places aroud town to </p>
-        <select> </select>
-        <Container className={ styles.cardsContainer }>
-        <Row>
-            <Col></Col>
-            <Col></Col>
-        </Row>
-        </Container>
+    <div className={styles.textWrapper}>
+    <h4> Comming to visit us?</h4>
+    <div className={styles.navWrapper}>
+      <Navbar color="light" light expand="md">
+        <Nav className="ml-auto" navbar>
+          <NavItem> Here are some of our favorite places aroud town to </NavItem>
+        <UncontrolledDropdown setActiveFromChild>
+          <DropdownToggle tag="a" className="nav-link" caret>
+            A quiet place to read a book
+          </DropdownToggle>
+          <DropdownMenu>
+            <DropdownItem > A place to dance all night </DropdownItem>
+            <DropdownItem > A place to take breakfast </DropdownItem>
+            <DropdownItem > A place to take dinner </DropdownItem>
+            <DropdownItem > A good library </DropdownItem>
+          </DropdownMenu>
+        </UncontrolledDropdown>
+      </Nav>
+    </Navbar>
+    </div>
+    </div>
+
+        <div className={ styles.cardsContainer }>
+      <div className={styles.firstColumn}>
+      <p> Mexico City :</p>
+
+      <Card className={styles.cardWrapper1} >
+        <CardBody>
+        <CardTitle>
+          <div className={styles.titleWrapper1} >
+          <div className={styles.hamburguer}> <img src='/hamburger-solid.svg' /> </div> <div>Name of Place </div>
+          </div>
+        </CardTitle>
+          <CardSubtitle>123 Main St.</CardSubtitle>
+          <CardText>amazing burgers, <br/> impropteau jazz trios</CardText>
+        </CardBody>
+      </Card>
+
+      <Card className={styles.cardWrapper1} >
+        <CardBody>
+        <CardTitle>
+          <div className={styles.titleWrapper1} >
+          <div className={styles.hamburguer}> <img src='/hamburger-solid.svg' /> </div> 
+          <div>Name of Place </div>
+          </div>
+        </CardTitle>
+          <CardSubtitle>123 Main St.</CardSubtitle>
+          <CardText>amazing burgers, <br/> impropteau jazz trios</CardText>
+        </CardBody>
+      </Card>
+
+      </div>
+      <div className={styles.secondColumn}>
+            <p> Washington, DC :</p>
+        <Card className={styles.cardWrapper2} >
+        <CardBody>
+          <CardTitle>
+            <div className={styles.titleWrapper2} >
+              <div className={styles.hamburguer}> <img src='/hamburger-solid.svg' /> </div>
+              <div>Name of Place </div>
+            </div>
+          </CardTitle>
+          <CardSubtitle>123 Main St.</CardSubtitle>
+          <CardText>amazing burgers, <br/> impropteau jazz trios</CardText>
+        </CardBody>
+      </Card>
+
+      <Card className={styles.cardWrapper2} >
+        <CardBody>
+        <CardTitle>
+          <div className={styles.titleWrapper2} >
+            <div className={styles.hamburguer}> <img src='/hamburger-solid.svg' /> </div>
+            <div>Name of Place </div>
+          </div>
+        </CardTitle>
+          
+          <CardSubtitle>123 Main St.</CardSubtitle>
+          <CardText>amazing burgers, <br/> impropteau jazz trios</CardText>
+        </CardBody>
+      </Card>
+      </div>
+      </div>
+
     </div>
     <Footer/>
     </>

@@ -128,6 +128,55 @@
 }
 
 .fourthContainer{
-    height: 400px;
+    min-height: 400px;
     font-family: 'Roboto', sans-serif;
+    .textWrapper{
+        display: flex;
+        justify-items: stretch;
+        margin-left: 20%;
+        margin-bottom: 5%;
+    }
+    .hamburguer{
+        width: 40px;
+        height: 40px;
+        background-color: #29a4dd;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            filter: invert(100%);
+            width: 70%;
+        }
+    }
+    .cardsContainer{
+        display: flex;
+        .firstColumn{
+            width: 50%;
+            text-align: right;
+            .cardWrapper1{
+                border-color: transparent;
+                text-align: right;
+                .titleWrapper1{
+                    display: flex;
+                    flex-direction:row-reverse;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                }
+            }
+        }
+        .secondColumn{
+            width: 50%;
+            .cardWrapper2{
+                border-color: transparent;
+                text-align: left;
+                .titleWrapper2{
+                    display: flex;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                }
+
+            }
+        }
+    }
 }
